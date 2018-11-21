@@ -17,7 +17,6 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import com.oracle.tools.packager.Log;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;

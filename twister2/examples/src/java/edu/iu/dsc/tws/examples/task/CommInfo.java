@@ -5,6 +5,8 @@ import java.io.*;
 //-itr 1 -workers 4 -size 8 -op "reduce" -stages 8,1 -verify
 
 public class CommInfo implements Serializable{
+    private static final long serialVersionUID = 1L;
+
     private int sourceParallelism;
 
     private int sinkParallelism;
