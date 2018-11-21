@@ -1,4 +1,4 @@
-package twister2.examples.src.java.edu.iu.dsc.tws.examples.task;
+package edu.iu.dsc.tws.examples.task;
 
 import java.io.*;
 

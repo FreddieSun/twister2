@@ -11,9 +11,13 @@
 //  limitations under the License.
 package edu.iu.dsc.tws.examples.task;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
+import com.oracle.tools.packager.Log;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -135,6 +139,26 @@ public class ExampleTaskMain {
     jobConfig.put(Constants.ARGS_INIT_ITERATIONS, intItr);
     jobConfig.put(Constants.ARGS_VERIFY, verify);
     jobConfig.put(Constants.ARGS_STREAM, stream);
+
+    Log.info("Here is the Task stage: " + taskStages);
+
+    edu.iu.dsc.tws.examples.task.CommInfo commInfo =  new edu.iu.dsc.tws.examples.task.CommInfo(8, 1,
+            itr, workers, operation);
+
+    // Serialize the object locally
+    try
+    {
+      FileOutputStream fileOut =
+              new FileOutputStream("/Users/weijiasun/Desktop/CommInfo.ser");
+      ObjectOutputStream out = new ObjectOutputStream(fileOut);
+      out.writeObject(e);
+      out.close();
+      fileOut.close();
+      Log.info("Serialized data is saved in /Users/weijiasun/Desktop/CommInfo.ser");
+    }catch(IOException i)
+    {
+      i.printStackTrace();
+    }
 
     // build the job
     if (!stream) {
