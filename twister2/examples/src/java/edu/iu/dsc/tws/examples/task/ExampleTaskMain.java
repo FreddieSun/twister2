@@ -139,7 +139,7 @@ public class ExampleTaskMain {
     jobConfig.put(Constants.ARGS_VERIFY, verify);
     jobConfig.put(Constants.ARGS_STREAM, stream);
 
-    Log.info("Here is the Task stage: " + taskStages);
+    LOG.info("Here is the Task stage: " + taskStages);
 
     edu.iu.dsc.tws.examples.task.CommInfo commInfo =  new edu.iu.dsc.tws.examples.task.CommInfo(8, 1,
             itr, workers, operation);
@@ -148,12 +148,12 @@ public class ExampleTaskMain {
     try
     {
       FileOutputStream fileOut =
-              new FileOutputStream("/Users/weijiasun/Desktop/CommInfo.ser");
+              new FileOutputStream("/CommInfo.ser");
       ObjectOutputStream out = new ObjectOutputStream(fileOut);
-      out.writeObject(e);
+      out.writeObject(commInfo);
       out.close();
       fileOut.close();
-      Log.info("Serialized data is saved in /Users/weijiasun/Desktop/CommInfo.ser");
+      LOG.info("Serialized data is saved in /Users/weijiasun/Desktop/CommInfo.ser");
     }catch(IOException i)
     {
       i.printStackTrace();
